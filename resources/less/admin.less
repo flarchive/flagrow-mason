@@ -1,0 +1,90 @@
+.MasonFieldList-list,
+.MasonAnswerList-list,
+.MasonAnswerList-freeText ul {
+  list-style: none;
+  margin: 0 0 12px;
+  padding: 0;
+}
+
+.MasonFieldList-item,
+.MasonAnswerList-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  border-radius: var(--border-radius);
+  background: var(--control-bg);
+
+  & + & {
+    margin-top: 6px;
+  }
+
+  &.sortable-placeholder {
+    opacity: 0.4;
+  }
+}
+
+.MasonFieldList-handle,
+.MasonAnswerList-handle {
+  cursor: move;
+  color: var(--muted-color);
+}
+
+.MasonFieldList-name {
+  font-weight: 600;
+
+  .icon {
+    margin-right: 6px;
+  }
+}
+
+.MasonFieldList-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-right: auto;
+}
+
+.MasonFieldList-badge {
+  padding: 0.1em 0.5em;
+  border-radius: var(--border-radius);
+  font-size: 85%;
+  color: var(--muted-color);
+  background: var(--body-bg);
+}
+
+.MasonAnswerList-item .FormControl {
+  flex: 1;
+  min-width: 0;
+  max-width: none;
+}
+
+.MasonAnswerList-content {
+  flex: 1;
+  overflow-wrap: anywhere;
+}
+
+.MasonAnswerList-add {
+  display: flex;
+  gap: 8px;
+
+  .FormControl {
+    flex: 1;
+  }
+}
+
+.MasonAnswerList-freeText {
+  margin-top: 16px;
+
+  summary {
+    cursor: pointer;
+    margin-bottom: 8px;
+    color: var(--muted-color);
+  }
+}
+
+.EditFieldModal .Modal-footer {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}

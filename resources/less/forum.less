@@ -1,0 +1,156 @@
+// Composer chip, styled like tags' "Choose Tags" chip next to it
+.DiscussionComposer-masonFields {
+  margin-right: 15px;
+  max-width: 280px;
+  padding: 0.1em 0.5em;
+  border: 1px dotted;
+  border-radius: var(--border-radius);
+  font-size: 85%;
+  font-weight: 600;
+  line-height: inherit;
+  color: var(--muted-color);
+
+  .Button-label,
+  &-label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &--incomplete {
+    color: var(--validation-error-color);
+  }
+}
+
+// Shared by the composer modal and the edit modal
+// The admin's column count (1-3) for the form and the details list.
+.Mason-Editor,
+.Mason-Details-list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+
+  @media @tablet-up {
+    &[data-columns="2"] {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    &[data-columns="3"] {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+}
+
+.Mason-Editor {
+  column-gap: 16px;
+
+  .Select {
+    display: block;
+  }
+}
+
+.Mason-required,
+.Mason-Field--invalid .Mason-Field-error {
+  color: var(--validation-error-color);
+}
+
+.Mason-Field--invalid .FormControl {
+  border-color: var(--validation-error-color);
+}
+
+// Read-only details on the discussion
+.Mason-Details {
+  --mason-gap: 8px 24px;
+
+  &--post {
+    margin-top: 16px;
+    padding: 12px 16px;
+    border-radius: var(--border-radius);
+    background: var(--control-bg);
+  }
+
+  // Inherits the hero's text colour, which core and tags already contrast against its background.
+  &--hero {
+    margin-top: 12px;
+    color: inherit;
+
+    .Mason-Details-header {
+      justify-content: center;
+    }
+
+    .Mason-Details-edit {
+      margin-left: 0;
+      color: inherit;
+    }
+
+    .Mason-Details-list {
+      justify-content: center;
+      grid-template-columns: auto;
+
+      @media @tablet-up {
+        &[data-columns="2"] {
+          grid-template-columns: repeat(2, auto);
+        }
+
+        &[data-columns="3"] {
+          grid-template-columns: repeat(3, auto);
+        }
+      }
+    }
+
+    .Mason-Details-item dt {
+      color: inherit;
+      opacity: 0.8;
+    }
+  }
+}
+
+.Mason-Details-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.Mason-Details-title {
+  margin: 0;
+  font-size: 1em;
+  color: var(--muted-color);
+}
+
+.Mason-Details-edit {
+  margin-left: auto;
+  padding: 0;
+  font-size: 12px;
+}
+
+.Mason-Details-list {
+  gap: var(--mason-gap);
+  margin: 0;
+}
+
+.Mason-Details-item {
+  min-width: 0;
+
+  dt {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted-color);
+
+    .icon {
+      margin-right: 5px;
+    }
+  }
+
+  dd {
+    margin: 0;
+    overflow-wrap: anywhere;
+  }
+}
+
+.Mason-Details-value + .Mason-Details-value::before {
+  content: ", ";
+}
+
+.Mason-Details-empty {
+  color: var(--muted-color);
+}
